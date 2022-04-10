@@ -8,7 +8,7 @@ The rendering is powered by the awesome [FNA](https://github.com/FNA-XNA/FNA) fr
  - This project uses [.NET 5](https://dotnet.microsoft.com/en-us/download/dotnet/5.0). You can install it [here](https://dotnet.microsoft.com/en-us/download/dotnet/5.0) incase you dont have it already.
  - FNA has the requirement to download their precompiled libraries. You can download them [here](https://fna.flibitijibibo.com/archive/fnalibs.tar.bz2). (You might need a 3rd party program to extract this tar.bz2 archieve)
 
-# How to use compile
+# How to compile
 
  - Clone the git repository with `git clone --recursive https://github.com/YoungFlyme/CellularAutomata.git` into a folder of your choice.
  - Open the project solution in any IDE of your choise (JetBrains Rider was used for the developement of this very project). Visual Studio Community-Edition should suffice.
