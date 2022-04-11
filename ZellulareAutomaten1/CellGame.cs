@@ -7,8 +7,8 @@ namespace ZellulareAutomaten1
 {
     public class CellGame : Game
     {
-        private const int HEIGHT = 200;
-        private const int WIDTH = 200;
+        private const int HEIGHT = 750;
+        private const int WIDTH = 750;
         
         private SpriteBatch sb;
         private CellularAutomata ca;
@@ -18,8 +18,10 @@ namespace ZellulareAutomaten1
             GraphicsDeviceManager gdm = new GraphicsDeviceManager(this);
             gdm.PreferredBackBufferHeight = HEIGHT;
             gdm.PreferredBackBufferWidth = WIDTH;
+            gdm.SynchronizeWithVerticalRetrace = false;
 
             IsMouseVisible = true;
+            IsFixedTimeStep = false;
         }
 
         protected override void LoadContent()

@@ -27,6 +27,27 @@ namespace ZellulareAutomaten1.HelperClasses
             new Color(204,51,63),
             new Color(235,104,65),
             new Color(237,201,81));
+        
+        public static ColorPalette Ophelia = new ColorPalette(
+            new Color(187,30,0), 
+            new Color(221,77,7), 
+            new Color(233,155,21),
+            new Color(186,157,27),
+            new Color(150,71,77));
+        
+        public static ColorPalette BlueEyesSea = new ColorPalette(
+            new Color(0,24,162), 
+            new Color(2,89,196), 
+            new Color(6,151,230),
+            new Color(2,226,255),
+            new Color(77,254,245));
+
+        public static ColorPalette ColorfulDay = new ColorPalette(
+            new Color(255, 190, 11),
+            new Color(251, 86, 7),
+            new Color(255, 0, 110),
+            new Color(131, 56, 236),
+            new Color(58, 134, 255));
 
         /// <summary>
         /// Returns a random ColorPalette from this static class (with the help of reflection)
@@ -35,7 +56,9 @@ namespace ZellulareAutomaten1.HelperClasses
         {
             Random r = new Random();
             var Palettes = typeof(ColorPalettes).GetFields().Where(p => p.FieldType == typeof(ColorPalette)).ToArray();
-            return (ColorPalette)Palettes[r.Next(0, Palettes.Length)].GetValue(null);
+            var Palette = Palettes[r.Next(0, Palettes.Length)];
+            Console.WriteLine("Randomed " + Palette.Name + " palette.");
+            return (ColorPalette)Palette.GetValue(null);
         }
     }
 }

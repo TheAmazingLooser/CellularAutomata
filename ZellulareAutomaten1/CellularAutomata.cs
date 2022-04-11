@@ -16,8 +16,8 @@ namespace ZellulareAutomaten1
         private const double UPDATE_SUPPRESION = 100;
         
         private int States = 5;
-        private int NeighbourDistance = 3;
-        private int StateThreshold = 1;
+        private int NeighbourDistance = 5;
+        private int StateThreshold = 29;
         
         //private int ITERATIONS = 600;
         
@@ -89,9 +89,14 @@ namespace ZellulareAutomaten1
         {
             // Check for negative indexes (x and y could be negative)
             // Wrap them around the grid if they are.
+
             x = FixIndex(x, Width);
             y = FixIndex(y, Height);
-            
+            return Cells[x][y];
+        }
+
+        private int GetCellStateUnsafe(int x, int y)
+        {
             return Cells[x][y];
         }
 
@@ -104,11 +109,32 @@ namespace ZellulareAutomaten1
 
             int nextState = (cellState + 1) % States;
 
+            int xLen = maxX - (cX - distance);
+            int yLen = maxY - (cY - distance);
+            
+            // To improve performance massively we need to fix the indexes in the loop directly.
+            int[] xIndexes = new int[xLen];
+            int[] yIndexes = new int[yLen];
+
+            int i = 0;
             for (int x = cX - distance; x < maxX; x++)
             {
-                for (int y = cY - distance; y < maxY; y++)
+                xIndexes[i] = FixIndex(x, Width);
+                i++;
+            }
+            
+            i = 0;
+            for (int y = cY - distance; y < maxY; y++)
+            {
+                yIndexes[i] = FixIndex(y, Height);
+                i++;
+            }
+
+            for (int xIndex = 0; xIndex < xLen; xIndex++)
+            {
+                for (int yIndex = 0; yIndex < yLen; yIndex++)
                 {
-                    int nState = GetCellState(x, y);
+                    int nState = Cells[xIndexes[xIndex]][yIndexes[yIndex]];
                     
                     if (nextState == nState)
                         neighbours++;
@@ -177,10 +203,10 @@ namespace ZellulareAutomaten1
             KeyboardState = CurrentKeyboardState;
             #endregion
             
-            UpdateMilliseconds += gameTime.ElapsedGameTime.TotalMilliseconds;
-            if (UpdateMilliseconds < UPDATE_SUPPRESION) return;
+            //UpdateMilliseconds += gameTime.ElapsedGameTime.TotalMilliseconds;
+            //if (UpdateMilliseconds < UPDATE_SUPPRESION) return;
 
-            UpdateMilliseconds = 0;
+            //UpdateMilliseconds = 0;
             
             // LINQ-Copy jagged array.
             int[][] tCells = Cells.Select(s => s.ToArray()).ToArray();
