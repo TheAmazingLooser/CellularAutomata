@@ -3,7 +3,7 @@
 This repository contains C#-Code for different implementation of cellular automata.
 The rendering is powered by the awesome [FNA](https://github.com/FNA-XNA/FNA) framework.
 
-<img src="/Images/CyclicCellularAutoamta_5_5_29.gif" width="500" height="500" /> <img src="/Images/CyclicCellularAutoamta_5_5_29_2.gif" width="500" height="500" />
+<img src="/Images/CyclicCellularAutoamta_5_5_29.gif" width="250" height="250" /> <img src="/Images/CyclicCellularAutoamta_5_5_29_2.gif" width="250" height="250" />
 > GIFs were recorded in a 750x750 game resulution and were sped up by the recording. You mostlikely will not get such smooth animations.
 
 # Prerequisites
