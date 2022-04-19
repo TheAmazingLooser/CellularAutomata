@@ -7,8 +7,8 @@ namespace ZellulareAutomaten1
 {
     public class CellGame : Game
     {
-        private const int HEIGHT = 750;
-        private const int WIDTH = 750;
+        private const int HEIGHT = 1000;
+        private const int WIDTH = 1000;
         
         private SpriteBatch sb;
         private CellularAutomata ca;

@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FNA/lib/FAudio" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FNA/lib/SDL2-CS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/FNA/lib/Theorafile" vcs="Git" />
   </component>
 </project>
