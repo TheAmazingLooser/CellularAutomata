@@ -1,14 +1,15 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ZellulareAutomaten1.CellularExtensions;
 using ZellulareAutomaten1.HelperClasses;
 
 namespace ZellulareAutomaten1
 {
     public class CellGame : Game
     {
-        private const int HEIGHT = 1000;
-        private const int WIDTH = 1000;
+        private const int HEIGHT = 300;
+        private const int WIDTH = 300;
         
         private SpriteBatch sb;
         private CellularAutomata ca;
@@ -28,7 +29,7 @@ namespace ZellulareAutomaten1
         {
             base.LoadContent();
             sb = new SpriteBatch(GraphicsDevice);
-            ca = new CellularAutomata(WIDTH,HEIGHT, sb);
+            ca = new CyclicCellularAutomata(WIDTH,HEIGHT, sb);
         }
 
         protected override void Update(GameTime gameTime)
